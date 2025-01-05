@@ -18,6 +18,7 @@ body {
 
 .hero-img {
     width: 40%; /* Ajusta el tamaño de la imagen, puede ser un porcentaje menor según lo que necesites */
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
     margin-top: 20px;
@@ -25,6 +26,13 @@ body {
     margin-left: auto; /* Centra la imagen horizontalmente */
     margin-right: auto; /* Centra la imagen horizontalmente */
 }
+
+@media (max-width: 480px) {
+    .menu {
+        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+    }
+}
+
 
 /* Estilos para la sección hero */
 .hero h2 {
@@ -63,10 +71,10 @@ nav a {
 }
 
 .menu {
-    padding: 20px;
+    padding: 8px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 5px;
 }
 .menu-item {
     background-color: #fff;
@@ -75,24 +83,44 @@ nav a {
     padding: 10px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Evita que los rectángulos sean más anchos que el contenedor */
+    width: 100%; /* Opcional: ajusta al contenedor */
+    box-sizing: border-box; /* Incluye márgenes y bordes en el tamaño total */
+    margin: 10px auto; /* Centra y reduce el espacio */
 }
+  
 .menu-item img {
     max-width: 100%;
     border-radius: 8px;
 }
 
 footer {
+    display: flex;
+    flex-direction: column;
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Alinea los íconos verticalmente */
     text-align: center;
     padding: 10px;
     background-color: #333;
     color: #fff;
 }
 
+footer p{
+    margin: 0;
+}
+
 footer .social-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     margin-top: 10px;
 }
 
 footer .social-icons a {
+    display: inline-block;
     margin: 0 10px; /* Espaciado entre los íconos */
 }
 
@@ -106,6 +134,21 @@ footer .social-icon:hover {
     transform: scale(1.1); /* Efecto al pasar el ratón */
 }
 
+/* Media query para pantallas pequeñas */
+@media (max-width: 480px) {
+    footer .social-icons {
+        flex-wrap: nowrap; /* Fuerza a que estén en una fila */
+        gap: 8px;
+    }
+
+    footer p {
+        font-size: 14px; /* Ajusta el tamaño del texto para móviles */
+    }
+
+    footer .social-icon {
+        width: 30px; /* Reduce el tamaño de los íconos en pantallas pequeñas */
+    }
+}
 
 .menu-item table.precios {
     width: 100%;
@@ -221,6 +264,11 @@ h2, h3 {
 
 /* Ajuste específico para celulares */
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        flex-direction: column;
+      }
+
     .menu {
         grid-template-columns: repeat(2, 1fr); /* Muestra dos columnas en pantallas más pequeñas */
         gap: 10px; /* Reduce el espaciado */
@@ -234,6 +282,145 @@ h2, h3 {
         max-width: 120px; /* Reduce aún más el tamaño de las imágenes en celulares */
     }
 }
+
+@media (max-width: 480px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+    h1 {
+      font-size: 18px;
+    }
+  
+    .boton {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .item {
+    flex: 1 1 100%; /* Toma el 100% en pantallas pequeñas */
+    margin: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Cambia a fila en pantallas más grandes */
+    align-items: center;
+  }
+  
+  @media (min-width: 769px) {
+    .nav-links {
+      flex-direction: row;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Barra de navegación general */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333; /* Ajusta el color de fondo */
+    color: #fff; /* Color del texto */
+  }
+  
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle .menu-icon {
+    width: 30px; /* Ajusta el tamaño de la imagen del menú */
+    height: auto;
+    cursor: pointer; /* Hace que se vea como un botón */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Para adaptarse a pantallas pequeñas */
+    margin-top: 10px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+/* El menú estará oculto en dispositivos móviles hasta que se haga clic en la imagen */
+.nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-links.active {
+    display: flex; /* Muestra el menú cuando se activa */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* El menú se pone en columna en pantallas pequeñas */
+    }
+
+    .nav-links {
+        display: none; /* Oculta el menú por defecto */
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex; /* Muestra el menú cuando se activa */
+    }
+}
+
+  /* En pantallas pequeñas, convierte el menú en un diseño vertical */
+  @media (max-width: 480px) {
+    .navbar {
+        display: none;
+      flex-direction: column; /* Cambia a disposición vertical */
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .nav-links {
+      display: none; /* Oculta las opciones de menú inicialmente */
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-links.active {
+      display: flex; /* Muestra las opciones cuando el menú se activa */
+    }
+  
+    .nav-item {
+      padding: 10px 0;
+      text-align: left;
+      width: 100%;
+    }
+  
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5em;
+      padding: 10px;
+    }
+  }
+  
 
 .papasFritas-header {
     text-align: center;
@@ -682,6 +869,20 @@ button:hover {
     .social-icons {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+#menuImage {
+    width: 100%;
+    height: auto;
+    min-width: 200px; /* Establece un tamaño mínimo */
+    min-height: 150px; /* Establece un tamaño mínimo */
+}
+
+@media (max-width: 600px) {
+    #menuImage {
+        width: 80%;  /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+        height: auto;
     }
 }
 
