@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Hamburguesería Hebron</title>
     <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap" rel="stylesheet">
@@ -20,14 +20,19 @@
 </a>
 
 
-<nav>
-    <a href="#menu">Hamburguesas</a>
-    <a href="#papas fritas">Papas fritas</a>
-    <a href="#tapeos">Tapeos</a>
-    <a href="#sliders">Sliders</a>
-    <a href="#NotCo">NotCo</a>
-    <a href="#ubicacion">Ubicación</a>
-    <a href="#contacto">Contacto</a>
+<nav  class="navbar">
+    <div class="menu-toggle" id="menu-toggle">
+        <img src="imagenes/Menu3rayas.png" alt="Menú" class="menu-icon"> <!-- Imagen como botón -->
+    </div>
+    <div class="nav-links" id="nav-links">
+        <a href="#menu">Hamburguesas</a>
+        <a href="#papas fritas">Papas fritas</a>
+        <a href="#tapeos">Tapeos</a>
+        <a href="#sliders">Sliders</a>
+        <a href="#NotCo">NotCo</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+    </div>
 </nav>
 
 
@@ -36,6 +41,8 @@
     <h3>Le mandamos un besito a la dieta</h3>
     <img src="imagenes/principio2-removebg-preview.png" alt="Imagen de inicio" class="hero-img">
 </section>
+
+<script src="script.js"></script> <!-- Enlazar el archivo JS -->
 
 <section id="menu" class="menu-header">
     <h2>Hamburguesas</h2>
